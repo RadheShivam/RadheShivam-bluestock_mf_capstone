@@ -1,0 +1,7 @@
+1. fund_master.csv has 5 missing values.
+
+2. nav_history.csv contains 10 duplicate rows.
+
+3. Date column is object datatype and needs conversion.
+
+4. No major data loading issues found.

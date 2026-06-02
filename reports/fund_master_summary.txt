@@ -1,0 +1,42 @@
+FUND MASTER ANALYSIS
+
+Total Fund Houses: 10
+
+Fund Houses:
+- SBI Mutual Fund
+- HDFC Mutual Fund
+- ICICI Prudential MF
+- Nippon India MF
+- Kotak Mahindra MF
+- Axis Mutual Fund
+- Aditya Birla Sun Life MF
+- UTI Mutual Fund
+- Mirae Asset MF
+- DSP Mutual Fund
+
+Categories:
+- Equity
+- Debt
+
+Total Categories: 2
+
+Sub-Categories: 12
+Examples:
+- Large Cap
+- Mid Cap
+- Small Cap
+- Flexi Cap
+- ELSS
+- Index
+- Liquid
+- Gilt
+
+Risk Categories: 5
+- Low
+- Moderate
+- Moderately High
+- High
+- Very High
+
+Observation:
+The dataset contains a diverse mix of Equity and Debt schemes with multiple risk profiles and investment styles.
