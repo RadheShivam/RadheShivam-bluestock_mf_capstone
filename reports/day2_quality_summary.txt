@@ -1,0 +1,4 @@
+Performed data cleaning and validation on mutual fund datasets by handling missing values, validating
+records, standardizing formats, and creating cleaned datasets. Designed a SQLite star schema, loaded
+cleaned data into the database, developed analytical SQL queries for business insights, created a data
+dictionary, and updated the project repository with all database and ETL deliverables.
