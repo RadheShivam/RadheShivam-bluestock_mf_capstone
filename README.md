@@ -280,3 +280,55 @@ Lovely Professional University
 ## License
 
 This project was developed for educational and portfolio purposes as part of the Bluestock Capstone Program.
+
+
+
+
+
+## Script Organization and Automation
+
+To improve code maintainability and reproducibility, all Python scripts were cleaned and standardized as part of the final project phase.
+
+### Code Quality Improvements
+
+* Added descriptive docstrings to all Python scripts.
+* Removed unnecessary debug statements and temporary print outputs.
+* Improved code readability and organization.
+* Ensured scripts execute without errors.
+
+### Master Pipeline Execution
+
+A master execution script, `run_pipeline.py`, was created to automate the execution of the project's core components.
+
+The following scripts are executed sequentially:
+
+1. `etl_pipeline.py` – Performs extraction, transformation, and loading of datasets.
+2. `live_nav_fetch.py` – Fetches live NAV data from external APIs.
+3. `explore_fund_master.py` – Conducts exploratory analysis on fund master data.
+4. `validate_amfi_codes.py` – Validates AMFI scheme codes.
+
+### Run the Complete Pipeline
+
+```bash
+python scripts/run_pipeline.py
+```
+
+### Expected Output
+
+```text
+Running scripts/etl_pipeline.py...
+scripts/etl_pipeline.py completed successfully.
+
+Running scripts/live_nav_fetch.py...
+scripts/live_nav_fetch.py completed successfully.
+
+Running scripts/explore_fund_master.py...
+scripts/explore_fund_master.py completed successfully.
+
+Running scripts/validate_amfi_codes.py...
+scripts/validate_amfi_codes.py completed successfully.
+
+Pipeline execution finished.
+```
+
+This automation ensures consistency, reduces manual effort, and provides a streamlined workflow for reproducing the complete analytics pipeline.
