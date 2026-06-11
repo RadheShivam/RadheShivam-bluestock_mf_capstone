@@ -1,0 +1,33 @@
+# Mutual Fund Analytics and Investor Intelligence System
+
+### Bluestock Capstone Project
+
+**Submitted By:** Shivam kumar Mehta
+
+**Program:** Bachelor of Technology (B.tech)
+
+**Institution:** Lovely Professional University
+
+**Project Duration:** 7 Days
+
+**Tools & Technologies Used:**
+
+* Python
+* Pandas
+* NumPy
+* Matplotlib
+* SQLite
+* Power BI
+* Git & GitHub
+
+**Submission Date:** ___________
+
+
+
+Executive Summary
+
+This project presents a comprehensive Mutual Fund Analytics and Investor Intelligence System developed as part of the Bluestock Capstone Project. The objective of this project was to analyze mutual fund performance, investor behavior, market trends, and portfolio risk using advanced data analytics techniques.
+
+The project involved the collection, cleaning, and transformation of multiple mutual fund datasets followed by exploratory data analysis, performance evaluation, and dashboard development. Advanced analytical techniques such as Value at Risk (VaR), Conditional Value at Risk (CVaR), Rolling Sharpe Ratio analysis, investor cohort analysis, SIP continuity analysis, fund recommendation systems, and portfolio concentration measurement using the Herfindahl-Hirschman Index (HHI) were implemented.
+
+Interactive dashboards were created using Power BI to provide insights into industry trends, fund performance, investor analytics, and SIP market behavior. The project demonstrates the application of data science and business intelligence tools to solve real-world financial problems and support data-driven investment decisions.
