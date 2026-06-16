@@ -31,3 +31,15 @@ This project presents a comprehensive Mutual Fund Analytics and Investor Intelli
 The project involved the collection, cleaning, and transformation of multiple mutual fund datasets followed by exploratory data analysis, performance evaluation, and dashboard development. Advanced analytical techniques such as Value at Risk (VaR), Conditional Value at Risk (CVaR), Rolling Sharpe Ratio analysis, investor cohort analysis, SIP continuity analysis, fund recommendation systems, and portfolio concentration measurement using the Herfindahl-Hirschman Index (HHI) were implemented.
 
 Interactive dashboards were created using Power BI to provide insights into industry trends, fund performance, investor analytics, and SIP market behavior. The project demonstrates the application of data science and business intelligence tools to solve real-world financial problems and support data-driven investment decisions.
+
+
+Project Objectives
+
+1. To collect and integrate mutual fund datasets from multiple sources.
+2. To perform data cleaning and transformation using Python.
+3. To analyze mutual fund performance using financial metrics.
+4. To study investor behavior through cohort and SIP continuity analysis.
+5. To build predictive and recommendation-based analytics.
+6. To design interactive dashboards using Power BI.
+7. To generate actionable insights for investors and stakeholders.
+8. To demonstrate the practical application of data analytics in finance.
