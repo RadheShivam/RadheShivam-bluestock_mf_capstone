@@ -5,12 +5,14 @@ FROM scheme_performance
 ORDER BY aum_crore DESC
 LIMIT 5;
 
--- Query 2: Average NAV per Fund
+-- Query 2: Average NAV per Month
 
-SELECT amfi_code,
-AVG(nav) AS avg_nav
+SELECT
+    strftime('%Y-%m', date) AS month,
+    AVG(nav) AS average_nav
 FROM nav_history
-GROUP BY amfi_code;
+GROUP BY month
+ORDER BY month;
 
 -- Query 3: Monthly Average NAV
 

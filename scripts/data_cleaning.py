@@ -1,47 +1,47 @@
-# import pandas as pd
-# from pathlib import Path
+import pandas as pd
+from pathlib import Path
 
-# raw_path = Path("data/raw")
-# processed_path = Path("data/processed")
+raw_path = Path("data/raw")
+processed_path = Path("data/processed")
 
-# processed_path.mkdir(exist_ok=True)
+processed_path.mkdir(exist_ok=True)
 
-# # ==========================
-# # NAV HISTORY CLEANING
-# # ==========================
+# ==========================
+# NAV HISTORY CLEANING
+# ==========================
 
-# nav = pd.read_csv(raw_path / "02_nav_history.csv")
+nav = pd.read_csv(raw_path / "02_nav_history.csv")
 
-# nav["date"] = pd.to_datetime(nav["date"])
+nav["date"] = pd.to_datetime(nav["date"])
 
-# nav = nav.sort_values(
-#     ["amfi_code", "date"]
-# )
+nav = nav.sort_values(
+    ["amfi_code", "date"]
+)
 
-# nav = nav.drop_duplicates()
+nav = nav.drop_duplicates()
 
-# nav = nav[nav["nav"] > 0]
+nav = nav[nav["nav"] > 0]
 
-# nav["nav"] = nav["nav"].ffill()
+nav["nav"] = nav["nav"].ffill()
 
-# nav.to_csv(
-#     processed_path / "02_nav_history_cleaned.csv",
-#     index=False
-# )
+nav.to_csv(
+    processed_path / "02_nav_history_cleaned.csv",
+    index=False
+)
 
-# print("NAV History Cleaned")
+print("NAV History Cleaned")
 
-# # ==========================
-# # INVESTOR TRANSACTIONS
-# # ==========================
+# ==========================
+# INVESTOR TRANSACTIONS
+# ==========================
 
-# txn = pd.read_csv(
-#     raw_path / "08_investor_transactions.csv"
-# )
+txn = pd.read_csv(
+    raw_path / "08_investor_transactions.csv"
+)
 
-# txn["transaction_date"] = pd.to_datetime(
-#     txn["transaction_date"]
-# )
+txn["transaction_date"] = pd.to_datetime(
+    txn["transaction_date"]
+)
 
 # txn["transaction_type"] = (
 #     txn["transaction_type"]
@@ -49,34 +49,52 @@
 #     .str.title()
 # )
 
-# txn = txn[
-#     txn["amount_inr"] > 0
-# ]
 
-# valid_kyc = [
-#     "Verified",
-#     "Pending"
-# ]
+txn["transaction_type"] = (
+    txn["transaction_type"]
+    .str.strip()
+    .str.lower()
+)
 
-# txn = txn[
-#     txn["kyc_status"].isin(valid_kyc)
-# ]
+mapping = {
+    "sip": "SIP",
+    "systematic investment plan": "SIP",
+    "lumpsum": "Lumpsum",
+    "lump sum": "Lumpsum",
+    "redemption": "Redemption",
+    "redeem": "Redemption"
+}
 
-# txn.to_csv(
-#     processed_path /
-#     "08_investor_transactions_cleaned.csv",
-#     index=False
-# )
+txn["transaction_type"] = txn["transaction_type"].replace(mapping)
 
-# print("Investor Transactions Cleaned")
+txn = txn[
+    txn["amount_inr"] > 0
+]
 
-# # ==========================
-# # SCHEME PERFORMANCE
-# # ==========================
+valid_kyc = [
+    "Verified",
+    "Pending"
+]
 
-# perf = pd.read_csv(
-#     raw_path / "07_scheme_performance.csv"
-# )
+txn = txn[
+    txn["kyc_status"].isin(valid_kyc)
+]
+
+txn.to_csv(
+    processed_path /
+    "08_investor_transactions_cleaned.csv",
+    index=False
+)
+
+print("Investor Transactions Cleaned")
+
+# ==========================
+# SCHEME PERFORMANCE
+# ==========================
+
+perf = pd.read_csv(
+    raw_path / "07_scheme_performance.csv"
+)
 
 # return_cols = [
 #     "return_1yr_pct",
@@ -95,22 +113,54 @@
 #     .between(0.1, 2.5)
 # ]
 
-# perf.to_csv(
-#     processed_path /
-#     "07_scheme_performance_cleaned.csv",
-#     index=False
-# )
+return_cols = [
+    "return_1yr_pct",
+    "return_3yr_pct",
+    "return_5yr_pct"
+]
 
-# print("Scheme Performance Cleaned")
+# Convert return columns to numeric
+for col in return_cols:
+    perf[col] = pd.to_numeric(
+        perf[col],
+        errors="coerce"
+    )
 
-# print("\nCleaning Complete!")
+# Convert expense ratio to numeric
+perf["expense_ratio_pct"] = pd.to_numeric(
+    perf["expense_ratio_pct"],
+    errors="coerce"
+)
+
+# Flag anomalies
+perf["anomaly"] = (
+    ~perf["expense_ratio_pct"].between(0.1, 2.5)
+)
+
+# Keep only valid rows
+perf = perf[
+    perf["expense_ratio_pct"].between(0.1, 2.5)
+]
+
+print("Anomalies found:", perf["anomaly"].sum())
+
+
+perf.to_csv(
+    processed_path /
+    "07_scheme_performance_cleaned.csv",
+    index=False
+)
+
+print("Scheme Performance Cleaned")
+
+print("\nCleaning Complete!")
 
 
 
 
 # Clean the remaing files with basic cleaning steps
-import pandas as pd
-from pathlib import Path
+# import pandas as pd
+# from pathlib import Path
 
 raw_path = Path("data/raw")
 processed_path = Path("data/processed")

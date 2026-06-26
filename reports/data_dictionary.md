@@ -96,3 +96,32 @@
 | date | Date | Index reporting date | benchmark_indices.csv |
 | index_value | Decimal | Benchmark index value | benchmark_indices.csv |
 | daily_return | Decimal | Daily percentage return of the index | benchmark_indices.csv |
+
+
+
+## 11_alpha_beta.csv
+
+| Column Name | Data Type | Business Definition | Source |
+|-------------|-----------|---------------------|--------|
+| amfi_code | Integer | Unique scheme identifier | alpha_beta.csv |
+| alpha | Decimal | Risk-adjusted excess return | alpha_beta.csv |
+| beta | Decimal | Volatility relative to benchmark | alpha_beta.csv |
+
+
+## 12_fund_scorecard.csv
+
+| Column Name | Data Type | Business Definition | Source |
+|-------------|-----------|---------------------|--------|
+| amfi_code | Integer | Unique scheme identifier | fund_scorecard.csv |
+| overall_rating | Integer | Overall fund rating | fund_scorecard.csv |
+| risk_score | Decimal | Risk assessment score | fund_scorecard.csv |
+| return_score | Decimal | Performance score | fund_scorecard.csv |
+
+
+## 13_nav_returns.csv
+
+| Column Name | Data Type | Business Definition | Source |
+|-------------|-----------|---------------------|--------|
+| amfi_code | Integer | Unique scheme identifier | nav_returns.csv |
+| date | Date | NAV reporting date | nav_returns.csv |
+| daily_return | Decimal | Daily return percentage | nav_returns.csv |
